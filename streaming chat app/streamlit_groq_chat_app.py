@@ -15,7 +15,9 @@ def init_session():
 
 def get_client():
     if st.session_state.client is None:
-        api_key = "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"  
+        
+        api_key = st.secrets["GROQ_API"]
+
         if not api_key:
             st.error("⚠ GROQ_API_KEY environment variable not set. Please set it and rerun.")
             return None
@@ -109,3 +111,4 @@ if user_input:
 
 st.sidebar.markdown("---")
 st.sidebar.caption("Built with Streamlit and Groq SDK")
+
